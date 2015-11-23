@@ -35,7 +35,7 @@ void writeAddressBook(int fd) {
 }
 
 int main() {
-    int fd = open("/tmp/addressbook.bin", O_WRONLY);
+    int fd = creat("/tmp/addressbook.bin", 0666);
     writeAddressBook(fd);
     close(fd);
     return 0;
