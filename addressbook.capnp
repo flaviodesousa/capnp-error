@@ -24,3 +24,7 @@ struct Date {
   month @1 :UInt8;
   day @2 :UInt8;
 }
+
+struct AddressBook {
+ people @0 : List(Person);
+}

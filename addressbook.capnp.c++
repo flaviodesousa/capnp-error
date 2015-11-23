@@ -289,6 +289,57 @@ const ::capnp::_::RawSchema s_e142085e00717d22 = {
   0, 3, i_e142085e00717d22, nullptr, nullptr, { &s_e142085e00717d22, nullptr, nullptr, 0, 0, nullptr }
 };
 #endif  // !CAPNP_LITE
+static const ::capnp::_::AlignedData<37> b_b817d3881169f892 = {
+  {   0,   0,   0,   0,   5,   0,   6,   0,
+    146, 248, 105,  17, 136, 211,  23, 184,
+     18,   0,   0,   0,   1,   0,   0,   0,
+    117, 131, 222, 111,  97,  78,  99, 198,
+      1,   0,   7,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+     21,   0,   0,   0, 242,   0,   0,   0,
+     33,   0,   0,   0,   7,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+     29,   0,   0,   0,  63,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+     97, 100, 100, 114, 101, 115, 115,  98,
+    111, 111, 107,  46,  99,  97, 112, 110,
+    112,  58,  65, 100, 100, 114, 101, 115,
+    115,  66, 111, 111, 107,   0,   0,   0,
+      0,   0,   0,   0,   1,   0,   1,   0,
+      4,   0,   0,   0,   3,   0,   4,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   1,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+     13,   0,   0,   0,  58,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+      8,   0,   0,   0,   3,   0,   1,   0,
+     36,   0,   0,   0,   2,   0,   1,   0,
+    112, 101, 111, 112, 108, 101,   0,   0,
+     14,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   3,   0,   1,   0,
+     16,   0,   0,   0,   0,   0,   0,   0,
+    248,  93, 170,  10,   0, 121, 218, 196,
+      0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+     14,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0, }
+};
+::capnp::word const* const bp_b817d3881169f892 = b_b817d3881169f892.words;
+#if !CAPNP_LITE
+static const ::capnp::_::RawSchema* const d_b817d3881169f892[] = {
+  &s_c4da79000aaa5df8,
+};
+static const uint16_t m_b817d3881169f892[] = {0};
+static const uint16_t i_b817d3881169f892[] = {0};
+const ::capnp::_::RawSchema s_b817d3881169f892 = {
+  0xb817d3881169f892, b_b817d3881169f892.words, 37, d_b817d3881169f892, m_b817d3881169f892,
+  1, 1, i_b817d3881169f892, nullptr, nullptr, { &s_b817d3881169f892, nullptr, nullptr, 0, 0, nullptr }
+};
+#endif  // !CAPNP_LITE
 }  // namespace schemas
 }  // namespace capnp
 
@@ -326,6 +377,17 @@ constexpr uint16_t Date::_capnpPrivate::pointerCount;
 constexpr ::capnp::Kind Date::_capnpPrivate::kind;
 constexpr ::capnp::_::RawSchema const* Date::_capnpPrivate::schema;
 constexpr ::capnp::_::RawBrandedSchema const* Date::_capnpPrivate::brand;
+#endif  // !CAPNP_LITE
+
+// AddressBook
+#ifndef _MSC_VER
+constexpr uint16_t AddressBook::_capnpPrivate::dataWordSize;
+constexpr uint16_t AddressBook::_capnpPrivate::pointerCount;
+#endif
+#if !CAPNP_LITE
+constexpr ::capnp::Kind AddressBook::_capnpPrivate::kind;
+constexpr ::capnp::_::RawSchema const* AddressBook::_capnpPrivate::schema;
+constexpr ::capnp::_::RawBrandedSchema const* AddressBook::_capnpPrivate::brand;
 #endif  // !CAPNP_LITE
 
 

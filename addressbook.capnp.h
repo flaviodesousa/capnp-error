@@ -24,6 +24,7 @@ enum class Type_91572dbaef18751a: uint16_t {
 };
 CAPNP_DECLARE_ENUM(Type, 91572dbaef18751a);
 CAPNP_DECLARE_SCHEMA(e142085e00717d22);
+CAPNP_DECLARE_SCHEMA(b817d3881169f892);
 
 }  // namespace schemas
 }  // namespace capnp
@@ -71,6 +72,21 @@ struct Date {
 
   struct _capnpPrivate {
     CAPNP_DECLARE_STRUCT_HEADER(e142085e00717d22, 1, 0)
+    #if !CAPNP_LITE
+    static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
+    #endif  // !CAPNP_LITE
+  };
+};
+
+struct AddressBook {
+  AddressBook() = delete;
+
+  class Reader;
+  class Builder;
+  class Pipeline;
+
+  struct _capnpPrivate {
+    CAPNP_DECLARE_STRUCT_HEADER(b817d3881169f892, 0, 1)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
     #endif  // !CAPNP_LITE
@@ -363,6 +379,87 @@ private:
 };
 #endif  // !CAPNP_LITE
 
+class AddressBook::Reader {
+public:
+  typedef AddressBook Reads;
+
+  Reader() = default;
+  inline explicit Reader(::capnp::_::StructReader base): _reader(base) {}
+
+  inline ::capnp::MessageSize totalSize() const {
+    return _reader.totalSize().asPublic();
+  }
+
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const {
+    return ::capnp::_::structString(_reader, *_capnpPrivate::brand);
+  }
+#endif  // !CAPNP_LITE
+
+  inline bool hasPeople() const;
+  inline  ::capnp::List< ::Person>::Reader getPeople() const;
+
+private:
+  ::capnp::_::StructReader _reader;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::List;
+  friend class ::capnp::MessageBuilder;
+  friend class ::capnp::Orphanage;
+};
+
+class AddressBook::Builder {
+public:
+  typedef AddressBook Builds;
+
+  Builder() = delete;  // Deleted to discourage incorrect usage.
+                       // You can explicitly initialize to nullptr instead.
+  inline Builder(decltype(nullptr)) {}
+  inline explicit Builder(::capnp::_::StructBuilder base): _builder(base) {}
+  inline operator Reader() const { return Reader(_builder.asReader()); }
+  inline Reader asReader() const { return *this; }
+
+  inline ::capnp::MessageSize totalSize() const { return asReader().totalSize(); }
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const { return asReader().toString(); }
+#endif  // !CAPNP_LITE
+
+  inline bool hasPeople();
+  inline  ::capnp::List< ::Person>::Builder getPeople();
+  inline void setPeople( ::capnp::List< ::Person>::Reader value);
+  inline  ::capnp::List< ::Person>::Builder initPeople(unsigned int size);
+  inline void adoptPeople(::capnp::Orphan< ::capnp::List< ::Person>>&& value);
+  inline ::capnp::Orphan< ::capnp::List< ::Person>> disownPeople();
+
+private:
+  ::capnp::_::StructBuilder _builder;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  friend class ::capnp::Orphanage;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+};
+
+#if !CAPNP_LITE
+class AddressBook::Pipeline {
+public:
+  typedef AddressBook Pipelines;
+
+  inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
+  inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
+      : _typeless(kj::mv(typeless)) {}
+
+private:
+  ::capnp::AnyPointer::Pipeline _typeless;
+  friend class ::capnp::PipelineHook;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+};
+#endif  // !CAPNP_LITE
+
 // =======================================================================================
 
 inline bool Person::Reader::hasName() const {
@@ -584,6 +681,38 @@ inline  ::uint8_t Date::Builder::getDay() {
 inline void Date::Builder::setDay( ::uint8_t value) {
   _builder.setDataField< ::uint8_t>(
       3 * ::capnp::ELEMENTS, value);
+}
+
+inline bool AddressBook::Reader::hasPeople() const {
+  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline bool AddressBook::Builder::hasPeople() {
+  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::List< ::Person>::Reader AddressBook::Reader::getPeople() const {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::Person>>::get(
+      _reader.getPointerField(0 * ::capnp::POINTERS));
+}
+inline  ::capnp::List< ::Person>::Builder AddressBook::Builder::getPeople() {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::Person>>::get(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void AddressBook::Builder::setPeople( ::capnp::List< ::Person>::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::List< ::Person>>::set(
+      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+}
+inline  ::capnp::List< ::Person>::Builder AddressBook::Builder::initPeople(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::Person>>::init(
+      _builder.getPointerField(0 * ::capnp::POINTERS), size);
+}
+inline void AddressBook::Builder::adoptPeople(
+    ::capnp::Orphan< ::capnp::List< ::Person>>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::List< ::Person>>::adopt(
+      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::List< ::Person>> AddressBook::Builder::disownPeople() {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::Person>>::disown(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
 }
 
 
